@@ -6,6 +6,7 @@ import Weather from './../componentes/Weather'
 import WeatherDetails from './../componentes/WeatherDetails'
 import ForecastChart from './../componentes/ForecastChart'
 import Forecast from './../componentes/Forecast'
+import AppFrame from './../componentes/AppFrame'
 
 const city="Santiago"
 const country="Chile" 
@@ -57,21 +58,24 @@ const forecastItemList = [
 
 const CityPage = () => {
     return (
-        <Grid container justify="space-around" direction="column" spacing={2}>
-            <Grid item container xs={12} justify="center" alignItems="flex-end">
-                <CityInfo city={city} country={country}></CityInfo>
+        <AppFrame>
+            <Grid container justify="space-around" direction="column" spacing={2}>
+                <Grid item container xs={12} justify="center" alignItems="flex-end">
+                    <CityInfo city={city} country={country}></CityInfo>
+                </Grid>
+                <Grid container item xs={12} justify="center">
+                        <Weather state={state} temperature={temperature}></Weather>
+                        <WeatherDetails humidity={humidity} wind={wind}></WeatherDetails>
+                </Grid>
+                <Grid item xs={12}>
+                    <ForecastChart data={data}></ForecastChart>
+                </Grid>
+                <Grid item xs={12}>
+                    <Forecast forecastItemList={forecastItemList} ></Forecast>
+                </Grid>
             </Grid>
-            <Grid container item xs={12} justify="center">
-                    <Weather state={state} temperature={temperature}></Weather>
-                    <WeatherDetails humidity={humidity} wind={wind}></WeatherDetails>
-            </Grid>
-            <Grid item xs={12}>
-                <ForecastChart data={data}></ForecastChart>
-            </Grid>
-            <Grid item xs={12}>
-                <Forecast forecastItemList={forecastItemList} ></Forecast>
-            </Grid>
-        </Grid>
+        </AppFrame>
+        
             /* <div>
                 <Link to="/main">Volver a Main</Link>
             </div> */
