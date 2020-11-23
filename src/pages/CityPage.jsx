@@ -11,7 +11,7 @@ import AppFrame from './../componentes/AppFrame'
 const city="Santiago"
 const country="Chile" 
 const temperature=10
-const state="cloud"
+const state="clouds"
 const humidity=10
 const wind=9
 
@@ -49,11 +49,11 @@ const data = [
 ]
 
 const forecastItemList = [
-    {hour:13, state:'sunny', temperature:17, weekDay:'Lunes'},
+    {hour:13, state:'clear', temperature:17, weekDay:'Lunes'},
     {hour:14, state:'rain', temperature:16, weekDay:'Martes'},
-    {hour:15, state:'fog', temperature:18, weekDay:'Miércoles'},
-    {hour:16, state:'cloudy', temperature:15, weekDay:'Jueves'},
-    {hour:17, state:'sunny', temperature:19, weekDay:'Viernes'},
+    {hour:15, state:'drizzle', temperature:18, weekDay:'Miércoles'},
+    {hour:16, state:'clouds', temperature:15, weekDay:'Jueves'},
+    {hour:17, state:'clear', temperature:19, weekDay:'Viernes'},
 ]
 
 const CityPage = () => {

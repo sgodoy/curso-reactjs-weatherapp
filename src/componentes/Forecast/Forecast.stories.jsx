@@ -7,11 +7,11 @@ export default {
 }
 
 const forecastItemList = [
-    {hour:13, state:'sunny', temperature:17, weekDay:'Lunes'},
+    {hour:13, state:'clear', temperature:17, weekDay:'Lunes'},
     {hour:14, state:'rain', temperature:16, weekDay:'Martes'},
-    {hour:15, state:'fog', temperature:18, weekDay:'Miércoles'},
-    {hour:16, state:'cloudy', temperature:15, weekDay:'Jueves'},
-    {hour:17, state:'sunny', temperature:19, weekDay:'Viernes'},
+    {hour:15, state:'drizzle', temperature:18, weekDay:'Miércoles'},
+    {hour:16, state:'clouds', temperature:15, weekDay:'Jueves'},
+    {hour:17, state:'snow', temperature:19, weekDay:'Viernes'},
 ]
 
 export const ForecastExample = () => (<Forecast forecastItemList={forecastItemList} />)
