@@ -42,8 +42,8 @@ const CityList = ({ cities, onClickCity }) => {
 
     //hook state
     useEffect(() => {
-        const setWeather = async (city, countryCode) => {
-            const appid = "71e499c40db826745fe55612c16c109d-";
+        const setWeather = (city, country, countryCode) => {
+            const appid = "";
             const url = `https://api.openweathermap.org/data/2.5/weather?q=${city},${countryCode}&appid=${appid}`
 
             try {
