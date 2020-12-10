@@ -6,17 +6,19 @@ import Paper from '@material-ui/core/Paper'
 
 const cities = [
     {city:"Buenos Aires", country:"Argentina", countryCode: "AR"},
-    {city:"Bogotá", country:"Colombia", countryCode: "CO" },
+    {city:"Santiago", country:"Chile", countryCode: "CL" },
     {city:"Madrid", country:"España", countryCode: "ES"},
     {city:"Ciudad de México", country:"México", countryCode: "MX"}
 ]
 
-const MainPage = () => {
+const MainPage = () => {    
     const history = useHistory()
 
-    const onClickHandler = () => {
+    const onClickHandler = (city, countryCode) => {
         // permite trabajar con la url y cambiarla
-        history.push("/city")
+        console.log("city",city)
+        console.log("countryCode",countryCode)
+        history.push(`/city/${city}/${countryCode}`)
     }
 
     return (

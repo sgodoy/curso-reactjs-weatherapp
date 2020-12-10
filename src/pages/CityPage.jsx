@@ -1,5 +1,4 @@
-import React from 'react'
-import {Link} from  'react-router-dom'
+import React, {useEffect, useState} from 'react'
 import Grid from '@material-ui/core/Grid'
 import CityInfo from './../componentes/CityInfo'
 import Weather from './../componentes/Weather'
@@ -7,56 +6,21 @@ import WeatherDetails from './../componentes/WeatherDetails'
 import ForecastChart from './../componentes/ForecastChart'
 import Forecast from './../componentes/Forecast'
 import AppFrame from './../componentes/AppFrame'
-
-const city="Santiago"
-const country="Chile" 
-const temperature=10
-const state="clouds"
-const humidity=10
-const wind=9
-
-const data = [
-    {
-        "dayHour": "Jue 18",
-        "min": 14,
-        "max": 22,
-    },
-    {
-        "dayHour": "Vie 06",
-        "min": 18,
-        "max": 27,
-    },
-    {
-        "dayHour": "Vie 12",
-        "min": 18,
-        "max": 28,
-    },
-    {
-        "dayHour": "Vie 18",
-        "min": 18,
-        "max": 25,
-    },
-    {
-        "dayHour": "Sab 06",
-        "min": 15,
-        "max": 22,
-    },
-    {
-        "dayHour": "Sab 12",
-        "min": 12,
-        "max": 19,
-    }
-]
-
-const forecastItemList = [
-    {hour:13, state:'clear', temperature:17, weekDay:'Lunes'},
-    {hour:14, state:'rain', temperature:16, weekDay:'Martes'},
-    {hour:15, state:'drizzle', temperature:18, weekDay:'Miércoles'},
-    {hour:16, state:'clouds', temperature:15, weekDay:'Jueves'},
-    {hour:17, state:'clear', temperature:19, weekDay:'Viernes'},
-]
+import useCityPage from './../hooks/useCityPage'
 
 const CityPage = () => {
+
+    const { city, chartData, forecastItemList } = useCityPage()
+
+    //const city = "Buenos Aires"
+    const country = "Argentina"
+    const state = "cloudy"
+    const temperature = 20
+    const humidity = 80
+    const wind = 5
+    //const data = dataExample
+    //const forecastItemList = forecastItemListExample
+
     return (
         <AppFrame>
             <Grid container justify="space-around" direction="column" spacing={2}>
@@ -68,10 +32,10 @@ const CityPage = () => {
                         <WeatherDetails humidity={humidity} wind={wind}></WeatherDetails>
                 </Grid>
                 <Grid item xs={12}>
-                    <ForecastChart data={data}></ForecastChart>
+                    {chartData && <ForecastChart data={chartData}></ForecastChart>}
                 </Grid>
                 <Grid item xs={12}>
-                    <Forecast forecastItemList={forecastItemList} ></Forecast>
+                   { forecastItemList && <Forecast forecastItemList={forecastItemList} ></Forecast>}
                 </Grid>
             </Grid>
         </AppFrame>
